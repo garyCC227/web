@@ -1,0 +1,37 @@
+<!-- base2.html is the base html file that contain the top banner and back to top button-->
+<!DOCTYPE html>
+<html>
+
+{% block title %}
+{% endblock %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<body style="background-color:#f4fffe">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="font-weight: bold;">
+        <a class="navbar-brand" href="#">
+            <img src="static/style/Icon1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span>Lin's Notebook</span>
+        </a>
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">item1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">item2</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="btn btn-outline-primary"><b>Login</b></a>
+    </nav>
+
+    {% block content %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
