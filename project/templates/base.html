@@ -12,22 +12,27 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <body style="background-color:#f4fffe">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="font-weight: bold;">
-        <a class="navbar-brand" href="#">
-            <img src="static/style/Icon1.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <span>Lin's Notebook</span>
+    <nav class="navbar navbar-expand-lg" style="background-color: #17252A;font-weight: bold;">
+        <a class="navbar-brand" href="/">
+            <img src="static/style/Icon1.png" width="40" height="30" class="w3-hover-opacity d-inline-block align-top" alt="">
+            <span class="text-white w3-hover-opacity ml-1">Lin's Notebook</span>
         </a>
+
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">item1</a>
+                    <a class="nav-link w3-hover-opacity text-white" href="#">item1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">item2</a>
+                    <a class="nav-link w3-hover-opacity text-white" href="#">item2</a>
                 </li>
             </ul>
         </div>
-        <a href="#" class="btn btn-outline-primary"><b>Login</b></a>
+        {% if current_user.is_authenticated %}
+            <a href="{{url_for('login.log_out')}}" class="btn btn-outline-light"><b>Log out</b></a>
+        {% else %}
+            <a href="{{url_for('login.index')}}" class="btn btn-outline-light"><b>Login</b></a>
+        {% endif %}
     </nav>
 
     {% block content %}{% endblock %}

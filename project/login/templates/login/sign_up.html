@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} <title>Sign up</title> {% endblock %}
+
+{% block content %}
+
+<header class="w3-display-container px-1" style="margin-top:30px;width:350px;margin-left:auto;margin-right:auto">
+    <div class="w3-container" style="text-align:center;">
+        <!-- title and icon -->
+        <a href="#" class="w3-row badge badge-light rounded-circle" >
+            <img class="w3-image" src="static/style/Icon1.png" width="60" height="60" alt="">
+        </a>
+        <div class="w3-row my-2">
+            <h4 style="opacity:0.8">Join Lin's notebook</h4>
+        </div>
+    </div>
+        <!-- form -->
+    <form class="card w3-container bg-white" style="font-size:15px;opacity:0.9;">
+        <div class="w3-row form-group mt-4">
+            <label for="usernmae"><b>Username</b></label>
+            <input class="form-control" placeholder="Username" id="username" name="username" aria-describedby="username-help">
+            <small id="username-help">This will be your username</small>
+        </div>
+        <div class="w3-row form-group">
+            <label for="usernmae"><b>Email</b></label>
+            <input class="form-control" placeholder="Email" id="username" name="username" aria-describedby="email-help">
+            <small id="email-help">We won't share your email</small>
+        </div>
+        <div class="w3-row form-group">
+            <label for="pass"><b>Password</b></label>
+            <input type="password" class="form-control" id="pass" placeholder="Password">
+        </div>
+        <div class="w3-row form-group">
+            <label for="pass"><b>Comfirm password</b></label>
+            <input type="password" class="form-control" id="comfirm-pass" placeholder="Comfirm password">
+        </div>
+        <div class="w3-row mt-2 mb-4" style="text-align:center">
+            <button type="submit" class="w3-row btn btn-primary" style="width:100%">Submit</button>
+        </div>
+    </form>
+
+    <div class="w3-container mt-3">
+        <p>Already a user?  <span><a href="{{ url_for('login.index') }}">Log in now</a></span></p>
+    </div>
+    <!-- flash reminder here -->
+</header>
+{% endblock %}
