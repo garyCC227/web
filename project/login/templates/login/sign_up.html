@@ -15,7 +15,7 @@
         </div>
     </div>
         <!-- form -->
-    <form class="card w3-container bg-white" style="font-size:15px;opacity:0.9;">
+    <form action="{{ url_for('login.check_register') }}" method='post' class="card w3-container bg-white" style="font-size:15px;opacity:0.9;">
         <div class="w3-row form-group mt-4">
             <label for="usernmae"><b>Username</b></label>
             <input class="form-control" placeholder="Username" id="username" name="username" aria-describedby="username-help">
@@ -23,20 +23,30 @@
         </div>
         <div class="w3-row form-group">
             <label for="usernmae"><b>Email</b></label>
-            <input class="form-control" placeholder="Email" id="username" name="username" aria-describedby="email-help">
+            <input class="form-control" placeholder="Email" id="username" name="email" aria-describedby="email-help">
             <small id="email-help">We won't share your email</small>
         </div>
         <div class="w3-row form-group">
             <label for="pass"><b>Password</b></label>
-            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
         </div>
         <div class="w3-row form-group">
             <label for="pass"><b>Comfirm password</b></label>
-            <input type="password" class="form-control" id="comfirm-pass" placeholder="Comfirm password">
+            <input type="password" class="form-control" name="comfirm-pass" placeholder="Comfirm password">
         </div>
-        <div class="w3-row mt-2 mb-4" style="text-align:center">
+        <div class="w3-row mt-2" style="text-align:center">
             <button type="submit" class="w3-row btn btn-primary" style="width:100%">Submit</button>
         </div>
+        <div class="mt-2" style="text-align:center">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <small class="w3-text-red"> {{ message | safe}} </small>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <span class="mb-4"></span>
     </form>
 
     <div class="w3-container mt-3">

@@ -17,7 +17,7 @@
         <!-- form -->
     <form action="{{ url_for('login.check_login') }}" method="post" class="card w3-container bg-white" style="font-size:15px;opacity:0.9;">
         <div class="w3-row form-group mt-4">
-            <label for="usernmae"><b>Username or email address</b></label>
+            <label for="usernmae"><b>Username</b></label>
             <input class="form-control" placeholder="Username" id="username" name="username" aria-describedby="username-help">
         </div>
         <div class="w3-row form-group">
@@ -31,7 +31,7 @@
             {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                <small class="w3-text-red"> {{ message }} </small>
+                <small class="w3-text-red"> {{ message |safe }} </small>
                 {% endfor %}
             {% endif %}
             {% endwith %}

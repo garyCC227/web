@@ -38,6 +38,30 @@ def check_login():
 def register():
     return render_template('login/sign_up.html')
 
+@login_blueprint.route('/sign_up/check', methods=['POST','GET'])
+def check_register():
+    if request.method == 'POST':
+        username = request.form.get('username');
+        password = request.form.get('pass');
+        comfirm_pass = request.form.get('comfirm-pass');
+        email = request.form.get('email');
+
+        if username == '':#username or pass is empty
+            flash('Username cannot be empty')
+        elif password == '':
+            flash('password cannot be empty');
+        else:
+            data_manager = UserDataManager();
+            if(data_manager.is_existed(username)):
+                flash('The user already existed! <a href="/login") }}">log in now</a>')
+            elif( password != comfirm_pass):
+                flash('passwords are not the same')
+            else:
+                flash('<span class="text-success">Log in now ->></span>')
+                return redirect(url_for('login.index'))
+    return redirect(url_for('login.register'))
+
+
 @login_blueprint.route('/logout')
 @login_required
 def log_out():
