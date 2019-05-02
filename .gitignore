@@ -1,2 +1,3 @@
 project/__pycache__
 project/login/__pycache__
+*.pyc
